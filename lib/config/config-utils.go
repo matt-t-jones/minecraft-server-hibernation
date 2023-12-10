@@ -72,7 +72,7 @@ func (c *Configuration) IsWhitelist(reqPacket []byte, clientAddress string) *err
 			// wLen contains [ lenght of w + name ] (to increase safety)
 			// follows same explanation of nameLen
 			wLen := append([]byte{byte(len(w))}, []byte(w)...)
-			errco.NewLogln(errco.TYPE_INF, errco.LVL_3, errco.ERROR_NIL, "searching byte array for: %s", w)
+			errco.NewLogln(errco.TYPE_INF, errco.LVL_2, errco.ERROR_NIL, "searching byte array for: %s", w)
 			if bytes.Contains(reqPacket, wLen) {
 				foundMatch = true
 			}
@@ -88,7 +88,7 @@ func (c *Configuration) IsWhitelist(reqPacket []byte, clientAddress string) *err
 		return nil
 	} else {
 		// no match found
-		return errco.NewLog(errco.TYPE_ERR, errco.LVL_1, errco.ERROR_WHITELIST_CHECK, "msh config whitelist check failed")
+		return errco.NewLog(errco.TYPE_ERR, errco.LVL_1, errco.ERROR_WHITELIST_CHECK, "msh config whitelist check failed for %s")
 	}
 }
 
