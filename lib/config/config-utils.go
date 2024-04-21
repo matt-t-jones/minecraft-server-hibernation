@@ -50,6 +50,7 @@ func (c *Configuration) IsWhitelist(reqPacket []byte, clientAddress string) *err
 				errco.NewLogln(errco.TYPE_INF, errco.LVL_3, errco.ERROR_NIL, "searching byte array for: %s (whitelist import enabled)", e.Name)
 				if bytes.Contains(reqPacket, nameLen) {
 					foundMatch = true
+					break
 				}
 			}
 		}

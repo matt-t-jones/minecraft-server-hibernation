@@ -1,0 +1,22 @@
+[1mdiff --git a/lib/config/config-utils.go b/lib/config/config-utils.go[m
+[1mindex 2e7732a..1bdd289 100644[m
+[1m--- a/lib/config/config-utils.go[m
+[1m+++ b/lib/config/config-utils.go[m
+[36m@@ -72,7 +72,7 @@[m [mfunc (c *Configuration) IsWhitelist(reqPacket []byte, clientAddress string) *err[m
+ 			// wLen contains [ lenght of w + name ] (to increase safety)[m
+ 			// follows same explanation of nameLen[m
+ 			wLen := append([]byte{byte(len(w))}, []byte(w)...)[m
+[31m-			errco.NewLogln(errco.TYPE_INF, errco.LVL_3, errco.ERROR_NIL, "searching byte array for: %s", w)[m
+[32m+[m			[32merrco.NewLogln(errco.TYPE_INF, errco.LVL_2, errco.ERROR_NIL, "searching byte array for: %s", w)[m
+ 			if bytes.Contains(reqPacket, wLen) {[m
+ 				foundMatch = true[m
+ 			}[m
+[36m@@ -88,7 +88,7 @@[m [mfunc (c *Configuration) IsWhitelist(reqPacket []byte, clientAddress string) *err[m
+ 		return nil[m
+ 	} else {[m
+ 		// no match found[m
+[31m-		return errco.NewLog(errco.TYPE_ERR, errco.LVL_1, errco.ERROR_WHITELIST_CHECK, "msh config whitelist check failed")[m
+[32m+[m		[32mreturn errco.NewLog(errco.TYPE_ERR, errco.LVL_1, errco.ERROR_WHITELIST_CHECK, "msh config whitelist check failed for %s")[m
+ 	}[m
+ }[m
+ [m
